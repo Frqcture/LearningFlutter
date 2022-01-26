@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -15,12 +17,12 @@ class _MyAppState extends State<MyApp> {
     PostData data = PostData();
     
     StartUp mainPage = StartUp();
-    return mainPage.main(data.getNames(), data.getImages());
+    return mainPage.main(data.getNames(), data.getImages(), data.getCommentsUser(), data.getCommentsMessage());
   }
 }
 
 class StartUp {
-  Widget main(List _names, List _images) {
+  Widget main(List _names, List _images,List CommentUser, List CommentMessage) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -43,12 +45,19 @@ class StartUp {
                                     child: Text(e),
                                     alignment: Alignment.centerLeft),
                               ),
-                              Image.asset(_images[e.indexOf(e)],width: 375, height: 325, fit: BoxFit.fitHeight,),
-                              const Padding(
+                              Image.asset(_images[e.indexOf(e)],width: 375, height: 325, fit: BoxFit.fitHeight),
+                              Padding(
                                 padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                                child: Align(
-                                  child: Text('Test data'),
-                                  alignment: Alignment.centerLeft,
+                                // child: Align(
+                                //   child: Text('Test data'),
+                                //   alignment: Alignment.centerLeft,
+                                // ),
+                                child: Row(
+                                  children: [
+                                    Text(CommentUser[0],),
+                                    Text(': '),
+                                    Text(CommentMessage[0],softWrap: true,)
+                                  ],
                                 ),
                               ),
                             ],
@@ -77,6 +86,7 @@ class PostData {
       'more test data',
       'i want to see if this scrolls'
     ];
+
     final List<String> _images = [
       'assets/image.jpg.webp',
       'assets/image.jpg.webp',
@@ -84,11 +94,27 @@ class PostData {
       'assets/image.jpg.webp'
     ];
 
+    final List<String> _commentsUser = ['Frqcture'];
+    final List<String> _commentsMessage = ['This is a test to see if the comments work, what if i make them even longer so they need to go onto the next line or two'];
+
     List getNames() {
       return _names;
     }
 
     List getImages() {
       return _images;
+    }
+
+    List getCommentsUser() {
+      return _commentsUser;
+    }
+
+    List getCommentsMessage() {
+      return _commentsMessage;
+    }
+
+    void addImage(String UserName,String Message) {
+      _commentsUser.add(UserName);
+      _commentsMessage.add(Message);
     }
 }
