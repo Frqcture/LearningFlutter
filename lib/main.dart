@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
                                     child: Text(e),
                                     alignment: Alignment.centerLeft),
                               ),
-                              Image.asset('assets/image.jpg.webp'),
+                              Image.asset('assets/image.jpg.webp',width: 375, height: 325, fit: BoxFit.fitHeight,),
                               const Padding(
                                 padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                                 child: Align(
