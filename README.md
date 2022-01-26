@@ -1,6 +1,6 @@
-# flutter_application_1
+# Learning Flutter
 
-A new Flutter project.
+A basic social media app to introduce me to all aspects of the flutter framework.
 
 ## Getting Started
 
