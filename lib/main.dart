@@ -44,7 +44,11 @@ class StartUp {
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                                 child: Align(
-                                    child: Text(e),
+                                    child: Text(
+                                      e,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                     alignment: Alignment.centerLeft),
                               ),
                               Image.asset(_images[e.indexOf(e)],
@@ -55,10 +59,22 @@ class StartUp {
                                 padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                                 child: Row(
                                   children: [
-                                    Text(CommentUser[0] + ': ', style:  TextStyle(fontWeight: FontWeight.bold),),
+                                    Align(
+                                      child: Text(
+                                        CommentUser[0] + ': ',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      alignment: Alignment.topCenter,
+                                    ),
                                     Expanded(
-                                      child: Text(CommentMessage[0], maxLines: 2, overflow: TextOverflow.ellipsis,) )
-                                ],),
+                                        child: Text(
+                                      CommentMessage[0],
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ))
+                                  ],
+                                ),
                               ),
                             ],
                           ),
